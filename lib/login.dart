@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'select_pet.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -27,7 +28,7 @@ class Login extends StatelessWidget {
                   child: Text('Esqueceu a Senha?',
                       style: TextStyle(color: Colors.grey))),
               const SizedBox(height: 15),
-              _buildLoginButton('Entrar'),
+              _buildLoginButton('Entrar', context),     
               const SizedBox(height: 15),
               const Text('ou entre com',
                   textAlign: TextAlign.center,
@@ -38,7 +39,13 @@ class Login extends StatelessWidget {
                 text: 'Entre Com Google',
                 backgroundColor: Colors.white,
                 textColor: Colors.black,
-                onPressed: () {},
+                onPressed: () {
+                   Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PetSelection()),
+                  );
+                },
               ),
             ],
           ),
@@ -49,7 +56,7 @@ class Login extends StatelessWidget {
   }
 
   TextStyle get _headerTextStyle => TextStyle(
-      fontSize: 24, fontWeight: FontWeight.bold, color: Colors.green[800]);
+      fontSize: 18, fontWeight: FontWeight.bold, color: Colors.green[800]);
 
   Widget _buildTextField(String labelText, IconData icon,
       {bool obscureText = false}) {
@@ -65,11 +72,17 @@ class Login extends StatelessWidget {
     );
   }
 
-  Widget _buildLoginButton(String text) {
+  Widget _buildLoginButton(String text, BuildContext context) {
     return SizedBox(
       height: 50,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const PetSelection()),
+            );
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.green[800],
           shape:
@@ -104,7 +117,7 @@ class SocialLoginButton extends StatelessWidget {
       child: ElevatedButton.icon(
         onPressed: onPressed,
         icon: Image.asset(assetName, height: 24.0, width: 24.0),
-        label: Text(text, style: TextStyle(color: textColor, fontSize: 16)),
+        label: Text(text, style: TextStyle(color: textColor, fontSize: 18)),
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
           foregroundColor: textColor,
