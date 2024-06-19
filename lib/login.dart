@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'select_pet.dart';
+import 'home.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -28,7 +29,7 @@ class Login extends StatelessWidget {
                   child: Text('Esqueceu a Senha?',
                       style: TextStyle(color: Colors.grey))),
               const SizedBox(height: 15),
-              _buildLoginButton('Entrar', context),     
+              _buildLoginButton('Entrar', context),
               const SizedBox(height: 15),
               const Text('ou entre com',
                   textAlign: TextAlign.center,
@@ -40,12 +41,38 @@ class Login extends StatelessWidget {
                 backgroundColor: Colors.white,
                 textColor: Colors.black,
                 onPressed: () {
-                   Navigator.push(
+                  Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const PetSelection()),
                   );
                 },
+              ),
+              const SizedBox(height: 15),
+              SizedBox(
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const HomePage()),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    shadowColor: Colors.transparent,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                  child: const Text(
+                    'Voltar',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 15,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
@@ -67,7 +94,10 @@ class Login extends StatelessWidget {
         fillColor: const Color(0xFFE6E6E6),
         prefixIcon: Icon(icon),
         labelText: labelText,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5.0),
+          borderSide: BorderSide.none,
+        ),
       ),
     );
   }
@@ -79,9 +109,8 @@ class Login extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-              builder: (context) => const PetSelection()),
-            );
+            MaterialPageRoute(builder: (context) => const PetSelection()),
+          );
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.green[800],

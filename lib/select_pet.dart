@@ -21,15 +21,19 @@ class PetSelection extends StatelessWidget {
                 backgroundColor: Colors.transparent,
                 elevation: 0,
                 leading: IconButton(
-                  icon: const Icon(Icons.arrow_back, color: Color(0xFF004303)),
+                  icon:
+                      Image.asset('assets/seta_icone.png'), // Altere esta linha
                   onPressed: () => Navigator.of(context).pop(),
                 ),
                 title: const Text(
-                  'Escolha de Pet',
-                  style: TextStyle(color: Color(0xFF004303)),
+                  'Escolha seu Pet',
+                  style: TextStyle(
+                    color: Color(0xFF004303),
+                    fontFamily: 'Super Bubble',
+                  ),
                 ),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 10),
               const PetButton(
                 imagePath: 'assets/raposa.png',
                 petName: 'RAPOSA',
@@ -71,7 +75,7 @@ class PetButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.green,
           padding: const EdgeInsets.all(20), // Diminui o padding
-          minimumSize: const Size(double.infinity, 150), // Diminui o tamanho
+          minimumSize: const Size(150, 150), // Diminui o tamanho
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),
           ),
@@ -87,8 +91,8 @@ class PetButton extends StatelessWidget {
             Text(
               petName,
               style: const TextStyle(
+                fontFamily: 'Super Bubble',
                 fontSize: 16, // Diminui a fonte
-                fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),

@@ -28,3 +28,9 @@ flutter:
     - assets/raposa.png
     - assets/tartaruga.png
     - assets/logo_zoocare.png
+    - assets/seta_icone.png
+
+fonts:
+    - family: Super Bubble
+      fonts:
+        - asset: assets/font/SuperBubble.ttf
